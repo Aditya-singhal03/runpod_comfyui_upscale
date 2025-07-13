@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # 3. Create all necessary model directories.
 RUN mkdir -p \
     /comfyui/models/checkpoints/FLUX1 \
-    /comfyui/models/upscale_models \
+    /comfyui/models/upscale_models
 
 # 5. Download all the large, slow models first to leverage Docker caching.
 
