@@ -1,0 +1,281 @@
+{
+  "1": {
+    "inputs": {
+      "upscale_by": 2,
+      "seed": [
+        "26",
+        3
+      ],
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.15,
+      "mode_type": "Linear",
+      "tile_width": 512,
+      "tile_height": 512,
+      "mask_blur": 8,
+      "tile_padding": 32,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 8,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "image": [
+        "6",
+        0
+      ],
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ],
+      "upscale_model": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "Ultimate SD Upscale"
+    }
+  },
+  "2": {
+    "inputs": {
+      "ckpt_name": "FLUX1/flux1-dev.sft"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "3": {
+    "inputs": {
+      "clip_l": [
+        "15",
+        2
+      ],
+      "t5xxl": [
+        "15",
+        2
+      ],
+      "guidance": 3.5,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncodeFlux",
+    "_meta": {
+      "title": "CLIPTextEncodeFlux"
+    }
+  },
+  "4": {
+    "inputs": {
+      "clip_l": "",
+      "t5xxl": "",
+      "guidance": 3.5,
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncodeFlux",
+    "_meta": {
+      "title": "MANUAL PROMPT"
+    }
+  },
+  "5": {
+    "inputs": {
+      "rgthree_comparer": {
+        "images": [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_xriyp_00003_.png&type=temp&subfolder=&rand=0.012911713870340513"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_xriyp_00004_.png&type=temp&subfolder=&rand=0.16423529445657015"
+          }
+        ]
+      },
+      "image_a": [
+        "1",
+        0
+      ],
+      "image_b": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+      "title": "Image Comparer (rgthree)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "image": "ComfyUI_00051_.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "model_name": "4x-ClearRealityV1.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "Load Upscale Model"
+    }
+  },
+  "12": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "15": {
+    "inputs": {
+      "text_input": [
+        "41",
+        0
+      ],
+      "task": "more_detailed_caption",
+      "fill_mask": true,
+      "keep_model_loaded": true,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": false,
+      "output_mask_select": "",
+      "seed": [
+        "26",
+        3
+      ],
+      "image": [
+        "6",
+        0
+      ],
+      "florence2_model": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "17": {
+    "inputs": {
+      "model": "gokaygokay/Florence-2-Flux-Large",
+      "precision": "fp16",
+      "attention": "sdpa",
+      "convert_to_safetensors": false
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "18": {
+    "inputs": {
+      "text_0": "The image shows a model walking down a runway in a long, flowing green gown. The gown has a deep V-neckline and thin straps that go down to the floor. The skirt of the gown is made of a shiny, satin fabric that drapes elegantly around the model's body. The model's hair is styled in loose waves and falls over her shoulders. She is wearing nude-colored high heels and is holding a small white clutch in her left hand. The runway is white and there are rows of people sitting on either side of the runway, watching the model. The background is a black wall.",
+      "text": [
+        "15",
+        2
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "AUTO PROMPT"
+    }
+  },
+  "26": {
+    "inputs": {
+      "seed": 523879142222960
+    },
+    "class_type": "Seed",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "34": {
+    "inputs": {
+      "select": 2,
+      "sel_mode": false,
+      "input1": [
+        "3",
+        0
+      ],
+      "input2": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "1: AUTO │ 2: Manual"
+    }
+  },
+  "41": {
+    "inputs": {
+      "string": ""
+    },
+    "class_type": "Simple String",
+    "_meta": {
+      "title": "AUTO PROMPT"
+    }
+  },
+  "43": {
+    "inputs": {
+      "output_path": "[time(%Y-%m-%d)]",
+      "filename_prefix": "Black Mixture Auto Upscaler_Auto Caption",
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "filename_number_start": "true",
+      "extension": "png",
+      "dpi": 300,
+      "quality": 100,
+      "optimize_image": "true",
+      "lossless_webp": "false",
+      "overwrite_mode": "false",
+      "show_history": "false",
+      "show_history_by_prefix": "false",
+      "embed_workflow": "true",
+      "show_previews": "true",
+      "images": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "Image Save",
+    "_meta": {
+      "title": "Pick Image Save"
+    }
+  }
+}
