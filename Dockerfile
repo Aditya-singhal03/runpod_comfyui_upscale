@@ -27,4 +27,5 @@ RUN comfy-node-install \
     was-node-suite-comfyui \
     comfyui-florence2 \
     comfyui-impact-pack \
-    comfyui-custom-scripts
+    comfyui-custom-scripts \
+    cg-use-everywhere
