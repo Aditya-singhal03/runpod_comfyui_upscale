@@ -26,4 +26,5 @@ RUN comfy-node-install \
     comfyui_ultimatesdupscale \
     was-node-suite-comfyui \
     comfyui-florence2 \
-    comfyui-impact-pack
+    comfyui-impact-pack \
+    comfyui-custom-scripts
